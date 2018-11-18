@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <script src="/spring-boot/static/js/angular.js"></script>
+    <script src="/spring-boot/static/js/angular-route.js"></script>
+
+    <script src="/spring-boot/static/myRoute.js"></script>
+    <script src="/spring-boot/static/Global.js"></script>
+
+</head>
+<body ng-app="indexapp" ng-controller="indexController">
+<div class="left">
+    <ul>
+        <li ng-repeat="menu in menus"><a href="#{{menu.menuUrl}}">{{menu.menuName}}</a></li>
+        <a href="b.html?name=huang">跳转</a>
+    </ul>
+
+</div>
+
+<div class="right">
+    <div ng-view></div>
+
+</div>
+</body>
+</html>

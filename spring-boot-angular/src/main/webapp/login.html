@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <script src="static/js/angular.js"></script>
+    <script src="static/Global.js"></script>
+</head>
+<body ng-app="myapp" ng-controller="mycontrol">
+<form method="post">
+    姓名：<input type="text" name="username"><br>
+    密码：<input type="password" name="password"><br>
+    <input type="button" ng-click="sss()" value="登录">
+</form>
+</body>
+<script>
+    var app = angular.module('myapp', []);
+
+    app.controller('mycontrol', function ($http,$scope) {
+        $scope.sss = function () {
+            $http({
+                method: 'post',
+                url: '/spring-boot/login'
+            }).then(function successCallback(response) {
+                $scope.menuList = response.data;
+                console.log($scope.menuList);
+                window.location.href="sky/index.html";
+            }, function errorCallback() {
+                // 请求失败执行代码
+                console.log("失败！")
+            });
+
+
+        }
+    });
+
+
+</script>
+</html>
